@@ -306,14 +306,14 @@ by IWM, RSP, SPY and SHP.
 
 Profit/loss
 
-    ## [1] 101019.2
+    ## [1] 101124.6
 
-    ## [1] 1019.227
+    ## [1] 1124.642
 
 5% value at risk:
 
     ##       5% 
-    ## 7814.468
+    ## 7687.202
 
 ![](STA-380-Final_files/figure-markdown_github/3_6_1_3-1.png)
 
@@ -323,14 +323,14 @@ Profit/loss
 
 Profit/loss
 
-    ## [1] 100899.9
+    ## [1] 100984.6
 
-    ## [1] 899.8807
+    ## [1] 984.5574
 
 5% value at risk
 
     ##       5% 
-    ## 6163.754
+    ## 5879.823
 
 ![](STA-380-Final_files/figure-markdown_github/3_6_2_3-1.png)
 
@@ -340,14 +340,14 @@ Profit/loss
 
 Profit/loss
 
-    ## [1] 100487.6
+    ## [1] 100570.8
 
-    ## [1] 487.6351
+    ## [1] 570.7749
 
 5% value at risk
 
     ##       5% 
-    ## 2882.927
+    ## 2819.534
 
 ![](STA-380-Final_files/figure-markdown_github/3_6_3_3-1.png)
 
@@ -400,9 +400,10 @@ Removing unwanted columns and scaling the data
 ## Part 2
 
 Plotting the correlation between variables
-![](STA-380-Final_files/figure-markdown_github/4_3-1.png) As is visible
-from this correlation plot, a lot of variables in this dataset are
-highly correlated. Certain examples of this are:  
+![](STA-380-Final_files/figure-markdown_github/4_3-1.png)
+
+As is visible from this correlation plot, a lot of variables in this
+dataset are highly correlated. Certain examples of this are:  
 - Politics and travel  
 - Parenting and sports  
 - Health nutrition and Personal fitness
@@ -419,15 +420,18 @@ the line seems to stabilize after k=7.
 
 ### Silhouette method
 
-![](STA-380-Final_files/figure-markdown_github/4_4_2-1.png) This plot
-shows optimum number of clusters at 2, but intuitively it seems too
-less. The silhouette width tends to stabilize at k=5, before further
-reducing at k=8.
+![](STA-380-Final_files/figure-markdown_github/4_4_2-1.png)
+
+This plot shows optimum number of clusters at 2, but intuitively it
+seems too less. The silhouette width tends to stabilize at k=5, before
+further reducing at k=8.
 
 ### CH method
 
-![](STA-380-Final_files/figure-markdown_github/4_4_3-1.png) The first
-dip appears to be at k=2, thereby again giving us 2 optimal clusters.
+![](STA-380-Final_files/figure-markdown_github/4_4_3-1.png)
+
+The first dip appears to be at k=2, thereby again giving us 2 optimal
+clusters.
 
 ## Part 4
 
@@ -557,14 +561,16 @@ because 4 segments were found to be the most practical in terms of data
 interpret ability and prevented any significant overlap of cluster data.
 
 Running K means
+
 ![](STA-380-Final_files/figure-markdown_github/4_6_1-1.png)![](STA-380-Final_files/figure-markdown_github/4_6_1-2.png)
 
-Re visualizing the same plot
+Re-visualizing the same plot
+
 ![](STA-380-Final_files/figure-markdown_github/4_6_2-1.png)
 
 ### Plotting the clusters
 
-Calculatig mu and sigma
+Calculating mu and sigma
 
     ##    Cluster_1         Cluster_2         Cluster_3        Cluster_4      
     ##  Min.   :-8.5850   Min.   :-6.7400   Min.   :0.3580   Min.   :-0.5059  
@@ -608,12 +614,17 @@ segments:
 
 Following are certain inferences based on each segment:  
 - 1. The Informed - Loves to stay ahead of things and well read about
-world events Middle aged - 2. The fitness enthusiasts - Pretty self
-evident, like to watch their food intake and love breaking a sweat.
-Young. - 3. The Average Joe - Stays out of most discussions, but can go
-on for a long time about their favorite team on and off the field.
-Middle aged to old. - 4. The Student - College going students who like
-to unwind online after a day’s worth of hard work. Young.
+world events Middle aged
+
+-   1.  The fitness enthusiasts - Pretty self evident, like to watch
+        their food intake and love breaking a sweat. Young.
+
+-   1.  The Average Joe - Stays out of most discussions, but can go on
+        for a long time about their favorite team on and off the field.
+        Middle aged to old.
+
+-   1.  The Student - College going students who like to unwind online
+        after a day’s worth of hard work. Young.
 
 # Question 5- Author Attribution
 
@@ -625,7 +636,7 @@ to unwind online after a day’s worth of hard work. Young.
 
 2500 documents and 3397 terms found
 
-2500 documents and 32574 terms found
+2500 documents and 32570 terms found
 
 ![](STA-380-Final_files/figure-markdown_github/unnamed-chunk-24-1.png)![](STA-380-Final_files/figure-markdown_github/unnamed-chunk-24-2.png)
 

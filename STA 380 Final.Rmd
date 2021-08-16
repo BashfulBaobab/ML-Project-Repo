@@ -5,6 +5,7 @@ date: "08/16/2021"
 output: 
   md_document:
     variant: markdown_github
+    
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
@@ -85,7 +86,9 @@ The calculation for $5 million in extra construction costs for a green building 
 ## Part 5
 ```{r 1_5}
 ggplot(data1,aes(x = factor(renovated), y = age)) + 
-  geom_bar(stat='summary')
+  geom_bar(stat='summary') + 
+  labs(x = 'Renovated Buildings')
+  
 ```
 
 ```{r}
@@ -113,7 +116,8 @@ ggplot(data = data1, aes(x = amenities, y = class_b, fill = amenities)) + stat_s
 ```
 ```{r 1_6_5}
 ggplot(data1, aes(x = factor(green_rating), y = age)) + 
-  geom_bar(stat = 'summary')
+  geom_bar(stat = 'summary') +
+  labs(x = 'Green Rating')
 ```
 
 ```{r 1_6_6}
@@ -220,7 +224,7 @@ notLate = subset(notLate, UniqueCarrier %in% c("DL", "WN", "UA", "AA"))
 plotearly = ggplot(notLate, aes(x=DayOfWeek)) +
 geom_bar(width=.4, fill="steelblue") +
 labs(title = "Non-delayed flights by day of week",
-     subtitle = 'Early or timely flights by United, Delta, American, Southwest',
+     subtitle = 'Early or timely flights by Alaska, Delta, United, Southwest',
 x = "Day of Week",
 y = "Number of Flights") +
 theme(axis.text.x = element_text(angle=90, vjust=0.6))
@@ -482,11 +486,15 @@ Plotting the correlation between variables
 mtrix_corr=round(cor(s), 2)
 corrplot(mtrix_corr, method="circle")
 ```
+
+
 As is visible from this correlation plot, a lot of variables in this dataset
 are highly correlated. Certain examples of this are:  
 - Politics and travel  
 - Parenting and sports  
 - Health nutrition and Personal fitness  
+
+
 
 ## Part 3
 
@@ -503,6 +511,8 @@ However, the line seems to stabilize after k=7.
 ```{r 4_4_2}
 fviz_nbclust(scaled_s, kmeans, method = "silhouette")+labs(subtitle = "Silhouette method")
 ```
+
+
 This plot shows optimum number of clusters at 2, but intuitively it seems too 
 less. The silhouette width tends to stabilize at k=5, before further reducing at
 k=8.
@@ -520,6 +530,8 @@ CH_grid = foreach(k = k_grid, .combine='c') %do% {
 } 
 plot(k_grid, CH_grid)
 ```
+
+
 The first dip appears to be at k=2, thereby again giving us 2 optimal clusters.
 
 
@@ -557,6 +569,7 @@ S=pc_data
 ```
 
 
+
 ## Part 5
 
 K means clustering  
@@ -567,6 +580,7 @@ found to be the most practical in terms of data interpret ability and prevented
 any significant overlap of cluster data.
 
 Running K means
+
 ```{r 4_6_1}
 fviz_nbclust(S, kmeans, method = "wss")
 
@@ -576,7 +590,8 @@ social_clust_k=cbind(S, clust_k$cluster)
 plotcluster(S, clust_k$cluster)
 ```
 
-Re visualizing the same plot
+Re-visualizing the same plot
+
 ```{r 4_6_2}
 kmeans_2 = kmeans(S,4,nstart=25)
 fviz_cluster(kmeans_2,data=S,geom=c('point'),ellipse.type='euclid')
@@ -584,7 +599,8 @@ fviz_cluster(kmeans_2,data=S,geom=c('point'),ellipse.type='euclid')
 
 ### Plotting the clusters
 
-Calculatig mu and sigma
+Calculating mu and sigma
+
 ```{r 4_7_1,warning=FALSE}
 mu = attr(scaled_s,"scaled:center")
 sigma = attr(scaled_s,"scaled:scale")
@@ -655,14 +671,17 @@ Based on this analysis, we have identified the following market segments:
 
 Following are certain inferences based on each segment:  
 - 1. The Informed - Loves to stay ahead of things and well read about world events
-                    Middle aged
+                    Middle aged   
+                    
 - 2. The fitness enthusiasts - Pretty self evident, like to watch their food intake
-                               and love breaking a sweat. Young.
+                               and love breaking a sweat. Young.   
+                               
 - 3. The Average Joe - Stays out of most discussions, but can go on for a long time
                        about their favorite team on and off the field. Middle aged
-                       to old.
+                       to old.   
+                       
 - 4. The Student - College going students who like to unwind online after a day's
-                   worth of hard work. Young.
+                   worth of hard work. Young.   
 
 
 # Question 5- Author Attribution
@@ -792,7 +811,7 @@ tf_idf_mat_ts = weightTfIdf(DTM_test)
 DTM_test2=as.matrix(tf_idf_mat_ts) 
 # tf_idf_mat_ts 
 ```
-2500 documents and 32574 terms found
+2500 documents and 32570 terms found
 
 ```{r}
 DTM_train3 =DTM_train2[,which(colSums(DTM_train2) != 0)] 
